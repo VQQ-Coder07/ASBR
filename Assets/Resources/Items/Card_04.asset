@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f176d6000aa83e40ba779203d4b7d87, type: 3}
+  m_Name: Card_04
+  m_EditorClassIdentifier: 
+  cardName: Boost Weapon Range
+  cardSprite: {fileID: 21300000, guid: f12e22960aba7274398aeccf8db8acae, type: 3}
+  locked: 0
+  cardDuration: 0
+  card_discription: '<size=15>Description</size> <color=lime>380%</color> Boost weapon
+    range
+
+
+    <size=15>Usage</size> <color=lime>380%</color>Boost weapon range
+    by 25%'
+  cardcool: 0

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c47723dba73f748ac8cded55f0309a, type: 3}
+  m_Name: Card_09
+  m_EditorClassIdentifier: 
+  cardName: Cory
+  cardSprite: {fileID: 21300000, guid: b495d3b26bcd5b70b8ad8c7d04172700, type: 3}
+  locked: 1
+  cardHistory: 
+  cardHealth: 4000
+  cardAttack: 865
+  cardSpeed: 3365
+  cardRange: 3365
+  cardCool: 3365
+  cardDescription: 'Launch a Bone Spirit that will seek enemies. Deals 4000% weapon
+    damage as Physical on impact.
+
+
+    You gain a charge every <color=lime>15</color>
+    seconds and can store up to <color=green>3</color> charges. Recharge time is
+    reduced by <color=lime>1</color> second for each corpse you consume.'
+  currentExperience: 492
+  upgradeCost: 280
+  cardLevel: 8

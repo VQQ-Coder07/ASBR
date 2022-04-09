@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62c47723dba73f748ac8cded55f0309a, type: 3}
+  m_Name: Card_08
+  m_EditorClassIdentifier: 
+  cardName: Coby
+  cardSprite: {fileID: 21300000, guid: b4f5868cdc43abe45936aa410201a973, type: 3}
+  locked: 1
+  cardHistory: 
+  cardHealth: 4205
+  cardAttack: 865
+  cardSpeed: 3365
+  cardRange: 3365
+  cardCool: 3365
+  cardDescription: 'Lay a trap that remains dormant until another Hatred spender
+    is used to detonate the trap. When detonated, the trap and all other traps will
+    explode in a chain reaction for <color=lime>1160%</color> weapon damage as Fire
+    to all enemies within <color=green>8</color> yards of each trap.
+
+
+    <color=orange>You
+    can have a maximum of <color=lime>4</color> Spike Traps active at one time.</color>'
+  currentExperience: 342
+  upgradeCost: 280
+  cardLevel: 7

@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Obstacle
+  - Water
+  - Rocks
+  - Bush
+  - Tree
+  - Bone
+  - Crate
+  - Health
+  - Shield
+  - Bear
+  - Bot
+  - Airsoft
+  - Arrow
+  - BaseBall
+  - Bowling
+  - Football
+  - Frisbee
+  - Golf
+  - Hockey
+  - Soccer
+  - TableTennis
+  - Tennis
+  - VolleyBall
+  - Basketball
+  - Enemy
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - box
+  - chest
+  - PostProcessing
+  - GrassCollider
+  - GrassDetector
+  - Player
+  - WaterDetector
+  - WaterCollider
+  - Bot
+  - lid
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

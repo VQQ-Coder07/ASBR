@@ -1,0 +1,218 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1213725759851665340
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1213725759851665343}
+  - component: {fileID: 1213725759851665342}
+  - component: {fileID: 1213725759851665337}
+  m_Layer: 0
+  m_Name: WeaponCard_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1213725759851665343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213725759851665340}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1213725759851665342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213725759851665340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8863c6006a94044982294f3d2836f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SoccerPops: {fileID: 0}
+  Basketball_Pops: {fileID: 0}
+  Football_Pops: {fileID: 0}
+  Airsoft_Pops: {fileID: 0}
+  Arrow_Pops: {fileID: 0}
+  Frisbee_Pops: {fileID: 0}
+  Hockey_Pops: {fileID: 0}
+  Golf_Pops: {fileID: 0}
+  TableTennis_Pops: {fileID: 0}
+  Tennis_Pops: {fileID: 0}
+  Baseball_Pops: {fileID: 0}
+  Volley_Pops: {fileID: 0}
+  Bowling_Pops: {fileID: 0}
+  currentIndex: 0
+  selectInt: 0
+  weaponCards:
+  - {fileID: 11400000, guid: 333ebe95b91f72b40858a6545bd14e1d, type: 2}
+  - {fileID: 11400000, guid: d8dec2639d7bad042a173091141f16d2, type: 2}
+  - {fileID: 11400000, guid: 03735231e4d99c44b835f487d4c36fdb, type: 2}
+  - {fileID: 11400000, guid: 7ce2553efa34d4b449fe8f1eb43be0d8, type: 2}
+  - {fileID: 11400000, guid: 815c768ea2650184880d043516a15f8b, type: 2}
+  - {fileID: 11400000, guid: 3fbdd05e6c8961a4b8e3c967e5b1d98e, type: 2}
+  - {fileID: 11400000, guid: f9ecf2910101ea5429b2bd2459a6c944, type: 2}
+  - {fileID: 11400000, guid: 4f31af9ba526a16459357f54a1371963, type: 2}
+  - {fileID: 11400000, guid: 7d3982d4368a93041a2228891a39aef1, type: 2}
+  - {fileID: 11400000, guid: 3d6be0717285db14da7f6359896287ca, type: 2}
+  - {fileID: 11400000, guid: d2634f9b5cdaad143a96ed7c43d1e3f5, type: 2}
+  - {fileID: 11400000, guid: 7726a9ba8f961f249a4f3d071a359d75, type: 2}
+  - {fileID: 11400000, guid: f73d566d8f62bb4468d47068ab7ed92b, type: 2}
+  cardNameText: {fileID: 0}
+  cardSpriteImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  buttons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spriteImage: {fileID: 0}
+  slotOneImage: {fileID: 0}
+  slotOne_Glow: {fileID: 0}
+  slotTwoImage: {fileID: 0}
+  slotTwo_Glow: {fileID: 0}
+  slotThreeImage: {fileID: 0}
+  slotThree_Glow: {fileID: 0}
+  currentSlotOne: {fileID: 0}
+  currentSlotTwo: {fileID: 0}
+  currentSlotThree: {fileID: 0}
+  soccerspriteImage: {fileID: 0}
+  soccerDamageText: {fileID: 0}
+  soccerRangeText: {fileID: 0}
+  soccerCoolText: {fileID: 0}
+  football_spriteImage: {fileID: 0}
+  football_DamageText: {fileID: 0}
+  football_RangeText: {fileID: 0}
+  football_CoolText: {fileID: 0}
+  basketball_spriteImage: {fileID: 0}
+  basketball_DamageText: {fileID: 0}
+  basketball_RangeText: {fileID: 0}
+  basketball_CoolText: {fileID: 0}
+  airsoft_spriteImage: {fileID: 0}
+  airsoft_DamageText: {fileID: 0}
+  airsoft_RangeText: {fileID: 0}
+  airsoft_CoolText: {fileID: 0}
+  arrow_spriteImage: {fileID: 0}
+  arrow_DamageText: {fileID: 0}
+  arrow_RangeText: {fileID: 0}
+  arrow_CoolText: {fileID: 0}
+  frisbee_spriteImage: {fileID: 0}
+  frisbee_DamageText: {fileID: 0}
+  frisbee_RangeText: {fileID: 0}
+  frisbee_CoolText: {fileID: 0}
+  hockey_spriteImage: {fileID: 0}
+  hockey_DamageText: {fileID: 0}
+  hockey_RangeText: {fileID: 0}
+  hockey_CoolText: {fileID: 0}
+  golf_spriteImage: {fileID: 0}
+  golf_DamageText: {fileID: 0}
+  golf_RangeText: {fileID: 0}
+  golf_CoolText: {fileID: 0}
+  tableTennis_spriteImage: {fileID: 0}
+  tableTennis_DamageText: {fileID: 0}
+  tableTennis_RangeText: {fileID: 0}
+  tableTennis_CoolText: {fileID: 0}
+  tennis_spriteImage: {fileID: 0}
+  tennis_DamageText: {fileID: 0}
+  tennis_RangeText: {fileID: 0}
+  tennis_CoolText: {fileID: 0}
+  baseball_spriteImage: {fileID: 0}
+  baseball_DamageText: {fileID: 0}
+  baseball_RangeText: {fileID: 0}
+  baseball_CoolText: {fileID: 0}
+  volleyball_spriteImage: {fileID: 0}
+  volleyball_DamageText: {fileID: 0}
+  volleyball_RangeText: {fileID: 0}
+  volleyball_CoolText: {fileID: 0}
+  bowling_spriteImage: {fileID: 0}
+  bowling__DamageText: {fileID: 0}
+  bowling_RangeText: {fileID: 0}
+  bowling_CoolText: {fileID: 0}
+  levelNeededeExp: 0a0000001e0000003c0000006e000000b400000018010000e00100000c03000000050000e8080000
+  m_weaponsScrollRect: {fileID: 0}
+  m_equipWeaponPreview: {fileID: 0}
+  m_activeWeapon: {fileID: 0}
+  m_characterButtonHolder: {fileID: 0}
+  m_weaponsPopupHolder: {fileID: 0}
+  m_weaponsSlotHolder: {fileID: 0}
+  m_cantEquipTwicePopup: {fileID: 0}
+--- !u!114 &1213725759851665337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213725759851665340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3037f9889b2844a8602402b9ddbbc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initdamage: 050000000a000000080000000500000009000000090000000500000003000000080000000500000003000000050000000500000005000000
+  level:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  damage:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  upgradeCost: c8000000c8000000c8000000c8000000c8000000c8000000c8000000c8000000c8000000c8000000c8000000c8000000c8000000c8000000

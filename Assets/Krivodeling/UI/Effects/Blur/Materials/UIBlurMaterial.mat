@@ -26,7 +26,7 @@ Material:
     m_Floats:
     - _Intensity: 0
     - _Multiplier: 0.15
-    - _blurSizeXY: 1
+    - _blurSizeXY: 3.43
     - _intensity: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

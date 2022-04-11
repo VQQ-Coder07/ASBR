@@ -29,6 +29,8 @@ TagManager:
   - VolleyBall
   - Basketball
   - Enemy
+  - FxTemporaire
+  - Tile
   layers:
   - Default
   - TransparentFX

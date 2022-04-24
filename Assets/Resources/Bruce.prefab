@@ -1964,6 +1964,7 @@ MonoBehaviour:
   - {fileID: 3907065059560927687, guid: 852c0b7793070834db47373f0c64edfe, type: 3}
   - {fileID: 3907065060685663202, guid: 852c0b7793070834db47373f0c64edfe, type: 3}
   - {fileID: 933444434, guid: 852c0b7793070834db47373f0c64edfe, type: 3}
+  bot: 0
 --- !u!114 &2787064371774239108
 MonoBehaviour:
   m_ObjectHideFlags: 0

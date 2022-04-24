@@ -11,16 +11,19 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
     //Values that will be synced over network
     Vector3 latestPos;
     Quaternion latestRot;
+    public bool bot = true;
     // Use this for initialization
     void Start()
     {
         if (photonView.IsMine)
         {
+            if(!bot)
 			this.gameObject.tag = "Player";
             //Player is local
         }
         else
         {
+            if(!bot)
 			this.gameObject.tag = "Enemy";
             //Player is Remote, deactivate the scripts and object that should only be enabled for the local player
             for (int i = 0; i < localScripts.Length; i++)

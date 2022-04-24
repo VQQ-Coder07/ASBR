@@ -28,6 +28,7 @@ public class Editor : MonoBehaviour
     }
     private void Start()
     {
+        levelId = PlayerPrefs.GetInt("selectedMap");
         Load();
         SelectTile(0);
         LoadTileThumbnails();
@@ -122,6 +123,10 @@ public class Editor : MonoBehaviour
     }
     public void Load()
     {
+        if(levelId == 0)
+        {
+            return;
+        }
         name.text = maps[levelId].name;
         for(int j=0; j < maps[levelId].ids.Length; j++)
         {

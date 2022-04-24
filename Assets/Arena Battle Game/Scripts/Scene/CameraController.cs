@@ -47,7 +47,30 @@ public class CameraController : MonoBehaviour {
         }
     }
     private void LateUpdate(){
-        if(Editor.instance._mode == Editor.mode.play)
+        if(Editor.instance)
+        {
+            if(Editor.instance._mode == Editor.mode.play)
+            {
+                if (realtarget == null)
+                return;
+
+                float targetZPos = realtarget.transform.position.z + distanceToTarget;
+                float currentZpos = Mathf.SmoothDamp(this.transform.position.z, targetZPos, ref _currentVelocity, smoothTime);
+
+                this.transform.position = Vector3.SmoothDamp(this.transform.position, new Vector3(realtarget.position.x, _startYPos, currentZpos), ref velocityF, smoothTime, speed, deltaTime);
+            }
+            else if(Editor.instance._mode == Editor.mode.move)
+            {
+                if (Input.GetMouseButton(0))
+                {
+                    var newPosition = new Vector3();
+                    newPosition.x = Input.GetAxis("Mouse X") * panSpeed * Time.deltaTime;
+                    newPosition.y = Input.GetAxis("Mouse Y") * panSpeed * Time.deltaTime;
+                    transform.Translate(-newPosition);
+                }
+            }
+        }
+        else
         {
             if (realtarget == null)
             return;
@@ -56,16 +79,6 @@ public class CameraController : MonoBehaviour {
             float currentZpos = Mathf.SmoothDamp(this.transform.position.z, targetZPos, ref _currentVelocity, smoothTime);
 
             this.transform.position = Vector3.SmoothDamp(this.transform.position, new Vector3(realtarget.position.x, _startYPos, currentZpos), ref velocityF, smoothTime, speed, deltaTime);
-        }
-        else if(Editor.instance._mode == Editor.mode.move)
-        {
-            if (Input.GetMouseButton(0))
-            {
-                var newPosition = new Vector3();
-                newPosition.x = Input.GetAxis("Mouse X") * panSpeed * Time.deltaTime;
-                newPosition.y = Input.GetAxis("Mouse Y") * panSpeed * Time.deltaTime;
-                transform.Translate(-newPosition);
-            }
         }
     }
     public float panSpeed = 20f;

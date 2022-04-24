@@ -82,7 +82,7 @@ public class BotController : MonoBehaviour
             targetFound = true;
         }
         else if(target != null && targetFound && !attackMode){
-            transform.LookAt(target.transform.position);
+            //transform.LookAt(target.transform.position);
             agent.destination = target.transform.position;
         }
 

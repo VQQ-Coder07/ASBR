@@ -36,7 +36,7 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
 	public bool ready;
     private bool inParty;
     private bool quickjoin;
-    private bool tutorial;
+    private bool tutorial, editor;
     public static PUN2_GameLobby instance;
     private void Awake()
     {
@@ -415,6 +415,15 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
         tutorial = true;
 		CreateRoom("private", 1);
     }
+    public void LaunchEditor(int map) //0 = new map
+    {
+        loadingBar.joininggame = true;
+        LoadingScreen.SetActive(true);
+        LoadingScreen.GetComponent<Animator>().SetTrigger("swipein");
+        editor = true;
+        PlayerPrefs.SetInt("selectedMap", map);
+		CreateRoom("private", 1);
+    }
 	public void StartGame()
 	{
 		ready = true;
@@ -445,6 +454,12 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
         {
             tutorial = false;
             PhotonNetwork.LoadLevel("Tutorial");
+        	GameManager.instance.InMain = false;
+        }
+        else if(editor)
+        {
+            editor = false;
+            PhotonNetwork.LoadLevel("MapMaker");
         	GameManager.instance.InMain = false;
         }
     }

@@ -11,4 +11,13 @@ public class GameVariables : MonoBehaviour
     {
         refs = this;
     }
+    public GameObject player()
+    {
+        return CameraController.instance.realtarget.gameObject;
+    }
+    public void ability()
+    {
+        Abilities.instance.init();
+    }
+    public GameObject[] abilityIcons;
 }

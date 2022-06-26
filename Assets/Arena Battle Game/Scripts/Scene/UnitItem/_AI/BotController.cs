@@ -36,7 +36,8 @@ public class BotController : MonoBehaviour
     [HideInInspector]
     private int randPos;
     public NavMeshAgent agent;
-
+    public GameObject AttackParticle;
+    public Transform firePoint;
     void Start(){
         _mybody = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
@@ -56,10 +57,15 @@ public class BotController : MonoBehaviour
             return;
 
         if(state == BotState.IDLE){
-            animator.SetTrigger("Idle");
+            animator.SetTrigger("idle");
         }
         else if(state == BotState.RUN){
-            animator.SetTrigger("Run");
+            animator.SetTrigger("run");
+        }
+        else if(state == BotState.ATTACK){
+            animator.SetTrigger("Shot");
+            GameObject particle = (GameObject)Instantiate(AttackParticle, firePoint.position, Quaternion.identity) as GameObject;
+            particle.transform.LookAt(target.transform.position);
         }
 
         botState = state;
@@ -83,6 +89,7 @@ public class BotController : MonoBehaviour
         }
         else if(target != null && targetFound && !attackMode){
             //transform.LookAt(target.transform.position);
+            SetState(BotState.RUN);
             agent.destination = target.transform.position;
         }
 
@@ -91,7 +98,7 @@ public class BotController : MonoBehaviour
 
     void StopMove(){
         if(dist <= agent.stoppingDistance){
-            SetState(BotState.IDLE);
+            SetState(BotState.ATTACK);
             targetFound = false;
             attackMode = true;
         }

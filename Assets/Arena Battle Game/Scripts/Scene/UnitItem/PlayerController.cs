@@ -161,19 +161,22 @@ public class PlayerController : MonoBehaviour{
         _isMoving = true;
     }
 
-    private bool aiming;
+    [SerializeField]
+    public bool aiming;
     public void StopMove(){
         if(this._isMoving){
             this._isMoving = false;
             this.SetState(Common.State.IDLE);
         }
     }
-    private Vector3 _aimDirectionVector = new Vector3(0, 0, 1);
+    [SerializeField]
+    public Vector3 _aimDirectionVector = new Vector3(0, 0, 1);
     public void Aim(Vector3 directionVector){
         if(!this.InWater)
         {
             aiming = true;
             this.AttackRangeComponent.gameObject.SetActive(true);
+            this.AttackRangeComponent.transform.GetChild(0).gameObject.SetActive(true);
             _aimDirectionVector = directionVector;
             this.AttackRangeComponent.rotation = Quaternion.LookRotation(_aimDirectionVector);
             transform.rotation = Quaternion.LookRotation(_aimDirectionVector);
@@ -195,6 +198,7 @@ public class PlayerController : MonoBehaviour{
     {
         aiming = false;
         this.AttackRangeComponent.gameObject.SetActive(false);
+        this.AttackRangeComponent.transform.GetChild(0).gameObject.SetActive(false);
     }
 
     private float _lastShootedTime;

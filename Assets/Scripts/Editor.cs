@@ -191,7 +191,7 @@ public class Editor : MonoBehaviour
     {
         for(int j=0;j<tileButtons.childCount;j++)
         {
-            tileButtons.GetChild(j).GetChild(0).GetChild(0).GetComponent<RawImage>().texture = AssetPreview.GetAssetPreview(tiles[j+1]);
+            //tileButtons.GetChild(j).GetChild(0).GetChild(0).GetComponent<RawImage>().texture = AssetPreview.GetAssetPreview(tiles[j+1]);
         }
     }
     public void Play(bool value)

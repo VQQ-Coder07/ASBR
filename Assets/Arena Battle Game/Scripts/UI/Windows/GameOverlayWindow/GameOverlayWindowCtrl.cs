@@ -12,6 +12,8 @@ public class GameOverlayWindowCtrl : ClosableWindowCtrl
     public JoystickComponentCtrl AttackerJoystickComponent;
     public JoystickComponentCtrl AttackerJoystickComponentTwo;
     public JoystickComponentCtrl AttackJoystickComponentThree;
+    public JoystickComponentCtrl AbilityJoystickComponent;
+
 
     /* UI ref */
     [Header("Item Sprite Slot")]
@@ -70,8 +72,19 @@ public class GameOverlayWindowCtrl : ClosableWindowCtrl
             directionVector.Normalize();
             SceneController.instance.Instance.GetComponent<PlayerController>().Aim(directionVector);
         }
+            else if(AbilityJoystickComponent.Horizontal != 0 || AbilityJoystickComponent.Vertical != 0){
+            Vector3 directionVector = (Vector3.right * AbilityJoystickComponent.Horizontal + Vector3.forward * AbilityJoystickComponent.Vertical);
+            directionVector.Normalize();
+            //SceneController.instance.Instance.GetComponent<PlayerController>().Aim(directionVector);
+            Abilities.instance.Aim(directionVector);
+
+        }
         else
+        if(SceneController.instance.Instance != null)
+        {
             SceneController.instance.Instance.GetComponent<PlayerController>().StopAim();
+            Abilities.instance.StopAim();
+        }
     }
         
 

@@ -48,6 +48,10 @@ MonoBehaviour:
   - PartyCreated
   - ModifyHealth
   - Awake
+  - ability1
+  - ability2
+  - ability12
+  - ability5
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

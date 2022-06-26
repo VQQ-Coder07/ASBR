@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 public enum PlayerSelection1
 {
     Shadow = 0, Fatter = 1, Mind = 2, Worm = 3, Harm = 4, Harm2 = 5, Knight = 6, Threesome = 7, Floger = 8,
@@ -11,9 +11,9 @@ public enum PlayerSelection1
 //MARKER This script RUN FIRST EACH TIME
 public class GameManager : MonoBehaviour
 {
+    public bool offline;
     public void FAadd(string item, int value)
     {
-//        Debug.LogError("st");
         switch (item)
         {
             case "A":
@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
                 return;
             }
         }
-        Debug.LogError("est");
     }
     public static GameManager instance;//Singleton Pattern
     private CardManager cardManager;
@@ -86,6 +85,10 @@ public class GameManager : MonoBehaviour
 
 
     private void Awake(){
+        if(offline)
+        {
+            PhotonNetwork.OfflineMode = true;
+        }
         #region Singleton Pattern
         if(instance == null){
             instance = this;

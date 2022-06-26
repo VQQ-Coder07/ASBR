@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
-public class Shop : MonoBehaviour, IUnityAdsListener
+public class Shop : MonoBehaviour, IUnityAdsInitializationListener
 {
     public int[] boxprices;
     public int[] coinprices;
@@ -18,7 +18,7 @@ public class Shop : MonoBehaviour, IUnityAdsListener
     ShowOptions options = new ShowOptions();
     private void Start()
     {
-        Advertisement.AddListener(this);
+        //Advertisement.AddListener(this);
     }
     public void OnUnityAdsDidError(string message)
     {
@@ -64,5 +64,14 @@ public class Shop : MonoBehaviour, IUnityAdsListener
         #else
             Advertisement.Initialize(myGameIdAndroid, testMode);
         #endif
+    }
+    public void OnInitializationComplete()
+    {
+        Debug.Log("Unity Ads initialization complete.");
+    }
+
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message)
+    {
+        Debug.Log($"Unity Ads Initialization Failed: {error.ToString()} - {message}");
     }
 }

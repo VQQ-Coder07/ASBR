@@ -32,7 +32,7 @@ public class HexSnap : MonoBehaviour {
     }
 
     void OnDrawGizmosSelected() {
-        UnityEditor.Handles.Label(transform.position, hex.ToString());
+        //UnityEditor.Handles.Label(transform.position, hex.ToString());
     }
     //#endif
 }

@@ -13,6 +13,11 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
     public bool _sp1;
     public bool _sp2;
     private GameObject Player;
+    public static PUN2_RoomController instance;
+    void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         if (PhotonNetwork.CurrentRoom == null)

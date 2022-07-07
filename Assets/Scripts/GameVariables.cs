@@ -17,7 +17,7 @@ public class GameVariables : MonoBehaviour
     }
     public void ability()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Abilities>().init();
+        Abilities.instance.init();
     }
     public GameObject[] abilityIcons;
 }

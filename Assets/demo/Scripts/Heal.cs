@@ -17,13 +17,12 @@ public class Heal : MonoBehaviour
     public bool isMine;
     public bool AI;
     public float waitTillExplode;
-
-    public void OnCollisionEnter(Collision other)
+    public void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.LogError("COLLIISION");
+        //Debug.LogError("COLLIISION");
         if(other.gameObject.CompareTag("weapon") && (isMine || AI))
         {
-            Debug.LogError("COLLIISIONBYPLAYER");
+            //Debug.LogError("COLLIISIONBYPLAYER");
             if(hp < Life)
             {
                 if(isMine)Camera.main.gameObject.GetComponent<CameraShake>().ShakeCamera(3f, 0.2f);
@@ -39,13 +38,13 @@ public class Heal : MonoBehaviour
     }
     public void Die()
     {
-        if(this.GetComponent<Rigidbody>() != null)
+        if(this.GetComponent<Rigidbody2D>() != null)
         {
-            //this.GetComponent<Rigidbody>().bodyType = RigidbodyType.Static;
+            this.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         }
-        //if(this.GetComponent<LineRenderer>() != null) this.GetComponent<LineRenderer>().enabled = false;
-        //if(this.GetComponent<SpriteRenderer>().enabled != null)this.GetComponent<SpriteRenderer>().enabled = false;
-        //if(this.GetComponent<SpriteRenderer>().enabled != null)this.GetComponent<BoxCollider2D>().enabled = false;
+        if(this.GetComponent<LineRenderer>() != null) this.GetComponent<LineRenderer>().enabled = false;
+        if(this.GetComponent<SpriteRenderer>().enabled != null)this.GetComponent<SpriteRenderer>().enabled = false;
+        if(this.GetComponent<SpriteRenderer>().enabled != null)this.GetComponent<BoxCollider2D>().enabled = false;
         Instantiate(explosion, this.transform.position, Quaternion.identity);
         Invoke("DestroyH", waitTillExplode);
         foreach (MonoBehaviour m in scriptsToDisable)

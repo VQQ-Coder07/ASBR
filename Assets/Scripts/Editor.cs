@@ -9,7 +9,7 @@ public class Editor : MonoBehaviour
 {
     public int levelId;
     public Map[] maps;
-    public GameObject prefab, player, camdemo;
+    public GameObject prefab;
     public Terrain goTerrain;
     public Transform parent, demoCam, Cam, tileButtons;
     public enum mode
@@ -18,10 +18,10 @@ public class Editor : MonoBehaviour
     }
     public mode _mode;
     private mode lastMode;
-    public GameObject[] buttons, messages, tiles, buildTools, editor, playButtons, playerUI;
+    public GameObject[] buttons, messages, tiles;
     public static Editor instance;
     public TMP_InputField name;
-    public Color normal, selected, selectedMode, unselectedMode;
+    public Color normal, selected;
     private void Awake()
     {
         instance = this;
@@ -31,37 +31,7 @@ public class Editor : MonoBehaviour
         levelId = PlayerPrefs.GetInt("selectedMap");
         Load();
         SelectTile(0);
-        SetMode(0);
         LoadTileThumbnails();
-        if(player)
-        player.SetActive(false);
-    }
-    public void SetMode(int newmode)
-    {
-        foreach(GameObject obj in buildTools)
-        obj.SetActive(false);
-        switch (newmode)
-        {
-            case 0:
-                _mode = mode.move;
-                break;
-            case 1:
-                _mode = mode.build;
-                foreach (GameObject obj in buildTools)
-                obj.SetActive(true);
-                break;
-            case 2:
-                _mode = mode.delete;
-                break;
-            case 3:
-                _mode = mode.spawnpoint;
-                break;
-        }
-        foreach(GameObject obj in buttons)
-        {
-            obj.GetComponent<Image>().color = unselectedMode;
-        }
-        buttons[newmode].GetComponent<Image>().color = selectedMode;
     }
     public void Switch()
     {
@@ -100,8 +70,6 @@ public class Editor : MonoBehaviour
     }
     private void Update()
     {
-        //LoadTileThumbnails();
-
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             RaycastHit hit;
@@ -223,78 +191,19 @@ public class Editor : MonoBehaviour
     {
         for(int j=0;j<tileButtons.childCount;j++)
         {
-            tileButtons.GetChild(j).GetChild(0).GetChild(0).GetComponent<RawImage>().texture = RuntimePreviewGenerator.GenerateModelPreview(tiles[j+1].transform, 128, 128, false, true );
-        //AssetPreview.GetAssetPreview(tiles[j+1]);
-    }
-    }
-    private GameObject[] spawnpoints;
-    Transform GetClosestSpawnpoint(Transform[] _spawnpoints)
-    {
-        Transform tMin = null;
-        float minDist = Mathf.Infinity;
-        Vector3 currentPos = transform.position;
-        foreach (Transform t in _spawnpoints)
-        {
-            float dist = Vector3.Distance(t.position, currentPos);
-            if (dist < minDist)
-            {
-                tMin = t;
-                minDist = dist;
-            }
+            //tileButtons.GetChild(j).GetChild(0).GetChild(0).GetComponent<RawImage>().texture = AssetPreview.GetAssetPreview(tiles[j+1]);
         }
-        return tMin;
     }
-
     public void Play(bool value)
     {
         if(value)
         {
-            spawnpoints = GameObject.FindGameObjectsWithTag("spawnpoint");
-            float dist = 10000;
-            Transform spawnpoint =  null;
-            foreach (GameObject obj in spawnpoints)
-            {
-                if (Vector3.Distance(camdemo.transform.position, obj.transform.position) < dist)
-                {
-                    spawnpoint = obj.transform;
-                    dist = Vector3.Distance(camdemo.transform.position, obj.transform.position);
-                }
-                obj.SetActive(false);
-            }
-            if (!spawnpoint)
-            {
-                Debug.LogError("Error: no spawnpoints");
-                return;
-            }
-            else
-            {
-                player.transform.position = spawnpoint.position;
-                lastMode = _mode;
-                _mode = mode.play;
-                foreach (GameObject obj in editor)
-                    obj.SetActive(false);
-                playButtons[0].SetActive(false);
-                playButtons[1].SetActive(true);
-                foreach (GameObject obj in playerUI)
-                    obj.SetActive(true);
-                player.SetActive(true);
-            }
-
+            lastMode = _mode;
+            _mode = mode.play;
         }
         else
         {
-            foreach (GameObject obj in spawnpoints)
-            {
-                obj.SetActive(true);
-            }
             _mode = lastMode;
-            foreach (GameObject obj in editor)
-                obj.SetActive(true);
-            playButtons[0].SetActive(true);
-            playButtons[1].SetActive(false);
-            foreach(GameObject obj in playerUI)
-                obj.SetActive(false);
-            player.SetActive(false);
         }
     }
 }

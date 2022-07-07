@@ -22,24 +22,15 @@ public class CameraController : MonoBehaviour {
     private float _startXPos;
     private float _startYPos;
 
-    public float play_y;
-    public float play_dist;
-    public Vector3 play_offset;
-
-    public float editor_y;
-    public float editor_dist;
-
     private Vector3 velocityF = Vector3.zero;
 
-    private Vector3 editorPos;
-    private bool play;
     void Awake(){
         instance = this;
 
         this._startXPos = this.transform.position.x;
         this._startYPos = this.transform.position.y;
     }
-    
+
     void Start()
     {
         Invoke("SearchPlayer", 0.1f);
@@ -60,21 +51,13 @@ public class CameraController : MonoBehaviour {
         {
             if(Editor.instance._mode == Editor.mode.play)
             {
+                if (realtarget == null)
+                return;
 
-                if (target != null)
-                    realtarget = target;
-
-                if (!play)
-                {
-                    transform.position = new Vector3(transform.position.x, play_y, transform.position.z);
-                    distanceToTarget = play_dist;
-                    transform.position -= play_offset;
-                    play = true;
-                }
                 float targetZPos = realtarget.transform.position.z + distanceToTarget;
                 float currentZpos = Mathf.SmoothDamp(this.transform.position.z, targetZPos, ref _currentVelocity, smoothTime);
 
-                this.transform.position = Vector3.SmoothDamp(this.transform.position, new Vector3(realtarget.position.x, play_y, currentZpos), ref velocityF, smoothTime, speed, deltaTime);
+                this.transform.position = Vector3.SmoothDamp(this.transform.position, new Vector3(realtarget.position.x, _startYPos, currentZpos), ref velocityF, smoothTime, speed, deltaTime);
             }
             else if(Editor.instance._mode == Editor.mode.move)
             {
@@ -85,16 +68,6 @@ public class CameraController : MonoBehaviour {
                     newPosition.y = Input.GetAxis("Mouse Y") * panSpeed * Time.deltaTime;
                     transform.Translate(-newPosition);
                 }
-            }
-            if(Editor.instance._mode != Editor.mode.play)
-            {
-                transform.position = new Vector3(transform.position.x, editor_y, transform.position.z);
-                distanceToTarget = editor_y;
-                realtarget = null;
-                if(play)
-                    transform.position = editorPos;
-                editorPos = transform.position;
-                play = false;
             }
         }
         else

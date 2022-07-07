@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon Card_12
   m_EditorClassIdentifier: 
   cardName: Bowling
-  cardSprite: {fileID: 21300000, guid: 56f1f5bf7300b2f4caf8c7159565f18f, type: 3}
+  cardSprite: {fileID: 21300000, guid: 379594dc18858ad489143dae85de719b, type: 3}
   effect: {fileID: 0}
   locked: 0
   damage: 5

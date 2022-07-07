@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Kill Shot
   cardSprite: {fileID: 21300000, guid: b48bf2954e65e6d71a3a0df5b427c331, type: 3}
-  locked: 1
+  locked: 0
   cardHistory: 
   cardHealth: 4000
   cardAttack: 705
@@ -25,6 +25,6 @@ MonoBehaviour:
     of you for <color=lime>535%</color> weapon damage. Hammer of the Ancients has
     a <color=red>1%</color> increased Critical Hit Chance for every <color=green>5</color>
     Fury that you have.
-  currentExperience: 882
+  currentExperience: 705
   upgradeCost: 280
-  cardLevel: 9
+  cardLevel: 8

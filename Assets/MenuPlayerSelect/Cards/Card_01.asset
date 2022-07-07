@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Teddy
   cardSprite: {fileID: 21300000, guid: 5c6bc181967ac5de49a5330acaaf7c24, type: 3}
-  locked: 1
+  locked: 0
   cardHistory: 
   cardHealth: 4500
   cardAttack: 1430
@@ -24,6 +24,6 @@ MonoBehaviour:
   cardDescription: Create a flash of light that blinds all enemies within <color=lime>20</color>
     yards for <color=lime>3</color> seconds. Elite enemies recover faster, but suffer
     a <color=green>30%</color> chance to miss with attacks.
-  currentExperience: 693
+  currentExperience: 151
   upgradeCost: 280
-  cardLevel: 8
+  cardLevel: 5

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Weapon Card_06
   m_EditorClassIdentifier: 
   cardName: Tennis
-  cardSprite: {fileID: 21300000, guid: e9830c0a565bd0748881c33596617835, type: 3}
+  cardSprite: {fileID: 21300000, guid: 0cc2e281146b8724e90e740abdf77e3a, type: 3}
   effect: {fileID: 0}
   locked: 0
-  damage: 5
+  damage: 3
   Range: 15
   CoolDown: 3
   weaponID: 7

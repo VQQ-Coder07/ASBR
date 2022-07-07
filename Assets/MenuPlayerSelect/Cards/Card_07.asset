@@ -24,6 +24,6 @@ MonoBehaviour:
   cardDescription: Lay a trap of caltrops on the ground that activates when an enemy
     approaches. Once sprung, the caltrops Slow the movement of enemies within <color=green>12</color>
     yards by <color=lime>60%</color>. This trap lasts <color=red>6</color> seconds.
-  currentExperience: 862
+  currentExperience: 675
   upgradeCost: 280
-  cardLevel: 9
+  cardLevel: 8

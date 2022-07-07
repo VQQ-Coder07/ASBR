@@ -32,8 +32,6 @@ TagManager:
   - FxTemporaire
   - Tile
   - Bullet
-  - weapon
-  - spawnpoint
   layers:
   - Default
   - TransparentFX

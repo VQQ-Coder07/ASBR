@@ -65,7 +65,6 @@ public class BotController : MonoBehaviour
         else if(state == BotState.ATTACK){
             animator.SetTrigger("Shot");
             GameObject particle = (GameObject)Instantiate(AttackParticle, firePoint.position, Quaternion.identity) as GameObject;
-            if(target != null)
             particle.transform.LookAt(target.transform.position);
         }
 

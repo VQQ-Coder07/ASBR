@@ -13,13 +13,6 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
     Quaternion latestRot;
     public bool bot = true;
     // Use this for initialization
-    void Awake()
-    {
-        if (Editor.instance != null)
-        {
-            Editor.instance.player = this.gameObject;
-        }
-    }
     void Start()
     {
         if (photonView.IsMine)
@@ -40,7 +33,7 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
             }
             for (int i = 0; i < localObjects.Length; i++)
             {
-				DestroyImmediate(localObjects[i], true);
+				Destroy(localObjects[i]);
                 //localObjects[i].SetActive(false);
             }
         }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.UI;
-using Photon.Pun;
+
 public class PlayerController : MonoBehaviour{
 
     private Common.State _currentState;
@@ -54,9 +54,6 @@ public class PlayerController : MonoBehaviour{
     public float speed = 2f;
     public float attackRange = 4f;
 
-    public float init_speed;
-    public float init_attackRange;
-
     public float healthPoints = 10;
     public float hitPoints = 2;
     public float reloadTime = 1;
@@ -73,8 +70,6 @@ public class PlayerController : MonoBehaviour{
         mybody = GetComponent<Rigidbody>();
 
         CameraController.instance.target = transform;
-        init_attackRange = attackRange;
-        init_speed = speed;
     }
 
     public void SetState(Common.State state){
@@ -229,16 +224,8 @@ public class PlayerController : MonoBehaviour{
         this.SetState(Common.State.IDLE);
         Destroy(weaponInstance);
     }
+
     public void Shoot(){
-        MilkShake.IShakeParameters shakeParams = new MilkShake.ShakeParameters();
-        shakeParams.ShakeType = MilkShake.ShakeType.OneShot;
-        shakeParams.Strength = 0.2f;
-        shakeParams.Roughness = 10f;
-        shakeParams.FadeIn = 0.05f;
-        shakeParams.FadeOut = 0.2f;
-        shakeParams.PositionInfluence = new Vector3(0.1f, 0.1f, 0.1f);
-        shakeParams.RotationInfluence = Vector3.one * 2;
-        MilkShake.Shaker.ShakeAllSeparate(shakeParams, null, 0);
         float distanceToObstacle = attackRange;
         RaycastHit hit;
         Vector3 unitCenterPos = transform.position + new Vector3(0, 0.5f, 0);
@@ -249,8 +236,7 @@ public class PlayerController : MonoBehaviour{
                 distanceToObstacle = distance;
         }
         if (isSoccer){
-            GameObject soccer = (GameObject)PhotonNetwork.Instantiate(this.soccer_Projectile.name, rightLeg.position, Quaternion.identity) as GameObject;
-            soccer.GetComponent<BulletCtrl>().photonView.RPC("BulletCtrl", RpcTarget.All, _aimDirectionVector.normalized, 30f, distanceToObstacle, this.hitPoints, this.isOurTeam);
+            GameObject soccer = (GameObject)Instantiate(this.soccer_Projectile, rightLeg.position, Quaternion.identity) as GameObject;
             soccer.GetComponent<BulletCtrl>().SetData(_aimDirectionVector.normalized, 30f, distanceToObstacle, this.hitPoints, this.isOurTeam);
             Debug.Log("Spawn");
         }

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Weapon Card_03
   m_EditorClassIdentifier: 
   cardName: Hockey
-  cardSprite: {fileID: 21300000, guid: 3be14263ee618994e8c50c713fe3cdeb, type: 3}
+  cardSprite: {fileID: 21300000, guid: cf4f9e19d1498044aa344e59e4ef0e2a, type: 3}
   effect: {fileID: 0}
   locked: 0
-  damage: 5
+  damage: 9
   Range: 20
   CoolDown: 6
   weaponID: 4

@@ -29,6 +29,6 @@ MonoBehaviour:
 
     <color=orange>You
     can have a maximum of <color=lime>4</color> Spike Traps active at one time.</color>'
-  currentExperience: 673
+  currentExperience: 342
   upgradeCost: 280
-  cardLevel: 8
+  cardLevel: 7

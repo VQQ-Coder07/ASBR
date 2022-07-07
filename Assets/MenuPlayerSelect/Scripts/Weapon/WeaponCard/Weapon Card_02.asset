@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Weapon Card_02
   m_EditorClassIdentifier: 
   cardName: Frisbee
-  cardSprite: {fileID: 21300000, guid: 878b2f932a8dca441a44df9de399074b, type: 3}
+  cardSprite: {fileID: 21300000, guid: 1a89ecb47af86de408b276010012fc35, type: 3}
   effect: {fileID: 0}
   locked: 0
-  damage: 8
+  damage: 5
   Range: 10
   CoolDown: 4
   weaponID: 3

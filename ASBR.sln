@@ -33,8 +33,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Toonshader", "Unity.T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PunDemos.DemoHubEditor", "PunDemos.DemoHubEditor.csproj", "{F77EEADD-A564-5132-B866-4E6C992D5976}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuntimePreviewGenerator.Runtime", "RuntimePreviewGenerator.Runtime.csproj", "{0032D1A2-335F-568A-F0F5-57B6FFBACB73}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking.Utilities.Culling.Editor", "PhotonUnityNetworking.Utilities.Culling.Editor.csproj", "{5ACAD69A-B391-995F-45BC-5823EA334586}"
 EndProject
 Global
@@ -107,10 +105,6 @@ Global
 		{F77EEADD-A564-5132-B866-4E6C992D5976}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F77EEADD-A564-5132-B866-4E6C992D5976}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F77EEADD-A564-5132-B866-4E6C992D5976}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0032D1A2-335F-568A-F0F5-57B6FFBACB73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0032D1A2-335F-568A-F0F5-57B6FFBACB73}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0032D1A2-335F-568A-F0F5-57B6FFBACB73}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0032D1A2-335F-568A-F0F5-57B6FFBACB73}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5ACAD69A-B391-995F-45BC-5823EA334586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5ACAD69A-B391-995F-45BC-5823EA334586}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ACAD69A-B391-995F-45BC-5823EA334586}.Release|Any CPU.ActiveCfg = Release|Any CPU

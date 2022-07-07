@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Bruce
   cardSprite: {fileID: 21300000, guid: 8c151ba5dae412c8b9cc82c128277881, type: 3}
-  locked: 0
+  locked: 1
   cardHistory: 
   cardHealth: 4000
   cardAttack: 700
@@ -28,6 +28,6 @@ MonoBehaviour:
     Revenge
     has a <color=green>15%</color> chance to gain a charge each time you are hit.
     Maximum <color=red>2</color> charges.'
-  currentExperience: 674
+  currentExperience: 996
   upgradeCost: 280
-  cardLevel: 8
+  cardLevel: 9

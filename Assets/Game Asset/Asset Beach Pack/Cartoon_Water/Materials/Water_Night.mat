@@ -2,20 +2,24 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Water_Night
   m_Shader: {fileID: 4800000, guid: 032c21f6809483a449cfed1a7c519f45, type: 3}
-  m_ShaderKeywords: 
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -92,7 +96,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _WaterTexture:
-        m_Texture: {fileID: 2800000, guid: 00556256e03ab764f9db35d85132d72b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0f09ff94811d98640acbfe6e92067d25, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _checker:
@@ -159,12 +163,13 @@ Material:
         m_Texture: {fileID: 2800000, guid: 00556256e03ab764f9db35d85132d72b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DistortionIntensity: 0.254
-    - _DistortionTiling: 40
+    - _DistortionIntensity: 0.1
+    - _DistortionTiling: 0.5
     - _DstBlend: 0
     - _FresnelIntenity: 0.21
     - _FresnelIntensity: 1.23
@@ -183,7 +188,7 @@ Material:
     - _Tiling: 0.07
     - _UVSec: 0
     - _WarpIntenisty: 0.11
-    - _WaterTiling: 30
+    - _WaterTiling: 2.5
     - _WavesSpeed: 1
     - _ZWrite: 1
     - __dirty: 0
@@ -204,10 +209,10 @@ Material:
     - _waterdepth: 0.82
     m_Colors:
     - _Color: {r: 0.40451992, g: 0.41587368, b: 0.6397059, a: 1}
-    - _DistortionSpeed: {r: -0.03, g: 0.22, b: 0, a: 0}
+    - _DistortionSpeed: {r: -0.03, g: 0.1, b: 0, a: 0}
     - _EmissionColor: {r: 0.08823529, g: 0.155781, b: 0.35294116, a: 1}
     - _FresnelColor: {r: 0.05767177, g: 0.1321121, b: 0.1509434, a: 0}
-    - _WaterColor: {r: 0.5283019, g: 0.08223568, b: 0.12448064, a: 0}
+    - _WaterColor: {r: 0, g: 0, b: 0, a: 0}
     - _WaterColorVariation: {r: 0.2236159, g: 0.46295327, b: 0.64705884, a: 1}
     - _WaterSpeed: {r: 0.02, g: 0.01, b: 0, a: 0}
     - _tint: {r: 0.16181877, g: 0.23212627, b: 0.30147058, a: 1}

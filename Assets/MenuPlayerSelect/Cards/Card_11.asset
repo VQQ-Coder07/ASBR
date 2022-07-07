@@ -28,6 +28,6 @@ MonoBehaviour:
 
     <color=orange>An enemy can
     only be affected by one Haunt at a time.</color>'
-  currentExperience: 163
+  currentExperience: 347
   upgradeCost: 280
-  cardLevel: 5
+  cardLevel: 7

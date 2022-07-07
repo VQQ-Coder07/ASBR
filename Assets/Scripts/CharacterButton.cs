@@ -7,6 +7,10 @@ public class CharacterButton : MonoBehaviour
     public Character m_character;
     public GameObject m_glow;
 
+    public void Awake()
+    {
+        m_glow = transform.GetChild(0).gameObject;
+    }
     public void Equip()
     {
         CardManager.Instance.currentIndex = m_character.m_id;

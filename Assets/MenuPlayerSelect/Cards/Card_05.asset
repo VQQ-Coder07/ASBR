@@ -31,6 +31,6 @@ MonoBehaviour:
 
 
     <color=orange>Only one Law may be active at a time.</color>'
-  currentExperience: 839
+  currentExperience: 1176
   upgradeCost: 280
   cardLevel: 9

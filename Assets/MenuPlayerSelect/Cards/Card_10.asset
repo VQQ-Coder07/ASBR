@@ -24,6 +24,6 @@ MonoBehaviour:
   cardDescription: Ghoulish hands reach out from the ground, slowing enemy movement
     by <color=lime>60%</color> and dealing <color=red>760%</color> weapon damage
     as Physical over <color=lime>8</color> seconds.
-  currentExperience: 916
+  currentExperience: 1473
   upgradeCost: 280
-  cardLevel: 9
+  cardLevel: 10

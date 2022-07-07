@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon Card_11
   m_EditorClassIdentifier: 
   cardName: Football
-  cardSprite: {fileID: 21300000, guid: 28e8ccfdd6e615a4c939088aa946ce67, type: 3}
+  cardSprite: {fileID: 21300000, guid: a9053a547a05bd34ab53b9c7934d0152, type: 3}
   effect: {fileID: 0}
   locked: 0
   damage: 5

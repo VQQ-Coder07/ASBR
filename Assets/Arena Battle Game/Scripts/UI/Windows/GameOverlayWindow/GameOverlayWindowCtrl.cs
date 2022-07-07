@@ -51,7 +51,7 @@ public class GameOverlayWindowCtrl : ClosableWindowCtrl
                 SceneController.instance.Instance.GetComponent<PlayerController>().Move(moveVector);
             }
             else{
-                Debug.Log("False");
+                //Debug.Log("False");
                 SceneController.instance.Instance.GetComponent<PlayerController>().StopMove();
             }
         }
@@ -76,14 +76,15 @@ public class GameOverlayWindowCtrl : ClosableWindowCtrl
             Vector3 directionVector = (Vector3.right * AbilityJoystickComponent.Horizontal + Vector3.forward * AbilityJoystickComponent.Vertical);
             directionVector.Normalize();
             //SceneController.instance.Instance.GetComponent<PlayerController>().Aim(directionVector);
-            Abilities.instance.Aim(directionVector);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Abilities>().Aim(directionVector);
 
         }
         else
         if(SceneController.instance.Instance != null)
         {
             SceneController.instance.Instance.GetComponent<PlayerController>().StopAim();
-            Abilities.instance.StopAim();
+            if(GameObject.FindGameObjectWithTag("Player") != null)
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Abilities>().StopAim();
         }
     }
         

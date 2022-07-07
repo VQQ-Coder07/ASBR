@@ -260,7 +260,7 @@ public class WeaponCard_Manager : MonoBehaviour
     }
     public void SetUpDefultWeapon(){
         for(int i = 0; i < weaponCards.Length; i++){
-            Debug.Log(" " + i);
+            //Debug.Log(" " + i);
             if(weaponCards[i].locked == false){
                 cardSpriteImages[i].sprite = weaponCards[i].cardSprite;
                 cardSpriteImages[i].GetComponent<Image>().color = new Color(255, 255, 255, 255);

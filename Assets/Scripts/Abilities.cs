@@ -5,6 +5,7 @@ using Photon.Pun;
 
 public class Abilities : MonoBehaviourPun, IPunObservable
 {
+    public bool[] global; 
     public bool[] resizeable;
     public int[] cooldown;
     public int[] duration;
@@ -12,11 +13,13 @@ public class Abilities : MonoBehaviourPun, IPunObservable
     public GameObject[] ranges;
     public int _ranges;
     public int id;
-    public GameObject invisibleIcon, wall;
+    public GameObject invisibleIcon, wall, healIcon, waterIcon, shieldIcon, waterColider;
     public static Abilities instance;
     public int[] ids;
-    private PhotonView photonView;
+    [SerializeField]
+    private PhotonView photonView, target;
     public Vector3 offset;
+    public bool bot, ab6;
     private void Awake()
     {
         photonView = this.gameObject.GetComponent<PhotonView>();
@@ -39,8 +42,39 @@ public class Abilities : MonoBehaviourPun, IPunObservable
     }
     public void init()
     {
-        Invoke("ability" + id.ToString(), 0f);
-        photonView.RPC("ability" + id.ToString(), RpcTarget.All);
+        //Invoke("ability" + id.ToString(), 0f);
+        if (global[id - 1])
+        {
+            photonView.RPC("ability" + id.ToString(), RpcTarget.All);
+        }
+        else
+        {   
+            if(target != null)
+            photonView.RPC("ability" + id.ToString(), RpcTarget.All, photonView.ViewID, target.ViewID);
+        }
+    }
+    [PunRPC]
+    private void ability1(int sender, int _target)
+    {
+        if (photonView.IsMine)
+        {
+            if (photonView.ViewID == sender)
+            {
+                Debug.LogError("SND");
+            }
+            if (photonView.ViewID == _target)
+            {
+                Debug.LogError("REC");
+                GetComponent<NetworkSync>().ModifyHealth(photonView.ViewID, -50);
+            }
+        }
+        else
+        {
+            if (PhotonView.Find(_target).IsMine)
+            {
+                PhotonView.Find(_target).gameObject.GetComponent<Abilities>().ability6(sender, _target);
+            }
+        }
     }
     [PunRPC]
     private void ability2()
@@ -71,15 +105,142 @@ public class Abilities : MonoBehaviourPun, IPunObservable
         }
     }
     [PunRPC]
+    private void ability3()
+    {
+        this.GetComponent<PlayerController>().speed = 3f;
+        Invoke("endability3", duration[2]);
+    }
+    private void endability3()
+    {
+        this.GetComponent<PlayerController>().speed = 2f;
+    }
+    [PunRPC]
     private void ability5()
     {
-        //Vector3 force = new Vector3(0, 500, 0) * transform.rotation
         this.GetComponent<Rigidbody>().AddForce(transform.forward * 100 + new Vector3(0, 500, 0));
     }
+    [PunRPC]
+    private void ability6(int sender, int _target)
+    {
+        if(photonView.IsMine)
+        {
+            if (photonView.ViewID == sender)
+            {
+                Debug.LogError("SND");
+            }
+            if (photonView.ViewID == _target)
+            {
+                Debug.LogError("REC");
+                GetComponent<PlayerController>().speed = 0;
+                GetComponent<PlayerController>().attackRange = 0;
+                Invoke("end_ability6", duration[5]);
+            }
+        }
+        else
+        {
+            if(PhotonView.Find(_target).IsMine)
+            {
+                PhotonView.Find(_target).gameObject.GetComponent<Abilities>().ability6(sender, _target);
+            }
+        }
+    }
+    private void end_ability6()
+    {
+        GetComponent<PlayerController>().speed = GetComponent<PlayerController>().init_speed;
+        GetComponent<PlayerController>().attackRange = GetComponent<PlayerController>().init_attackRange;
+    }
+    [PunRPC]
+    private void ability7(int sender, int _target)
+    {
+        if(photonView.IsMine)
+        {
+            if (photonView.ViewID == sender)
+            {
+                Debug.LogError("SND");
+            }
+            if (photonView.ViewID == _target)
+            {
+                Debug.LogError("REC");
+                Quaternion rot = transform.rotation;
+                transform.LookAt(PhotonView.Find(sender).gameObject.transform);
+                this.GetComponent<Rigidbody>().AddForce(transform.forward * 350 + new Vector3(0, 90, 0));
+                transform.rotation = rot;
+            }
+        }
+        else
+        {
+            if(PhotonView.Find(_target).IsMine)
+            {
+                PhotonView.Find(_target).gameObject.GetComponent<Abilities>().ability7(sender, _target);
+            }
+        }
+    }
+    [PunRPC]
+    private void ability8()
+    {
+        if (photonView.IsMine)
+        {
+            healIcon.SetActive(true);
+            InvokeRepeating("heal", 0, 0.9f);
+            Invoke("endability8", duration[7]);
+        }
+        else
+        {
+
+        }
+    }
+    private void heal()
+    {
+        GetComponent<NetworkSync>().ModifyHealth(photonView.ViewID, 10);
+    }
+    private void endability8()
+    {
+        CancelInvoke("heal");
+        healIcon.SetActive(false);
+    }
+    [PunRPC]
     private void ability9()
     {
         //Vector3 force = new Vector3(0, 500, 0) * transform.rotation
         this.GetComponent<Rigidbody>().AddForce(transform.forward * 350 + new Vector3(0, 90, 0));
+    }
+    [PunRPC]
+    private void ability10()
+    {
+        if (photonView.IsMine)
+        {
+            shieldIcon.SetActive(true);
+            GetComponent<NetworkSync>().ab10 = true;
+            Invoke("endability10", duration[7]);
+        }
+        else
+        {
+            GetComponent<NetworkSync>().ab10 = false;
+        }
+    }
+    private void endability10()
+    {
+        shieldIcon.SetActive(false);
+    }
+    [PunRPC]
+    private void ability11()
+    {
+        if (photonView.IsMine)
+        {
+            controller.InWater = false;
+            waterColider.SetActive(false);
+            waterIcon.SetActive(true);
+            Invoke("endability11", duration[10]);
+        }
+        else
+        {
+
+        }
+    }
+    private void endability11()
+    {
+        waterColider.SetActive(true);
+        waterIcon.SetActive(false);
     }
     private GameObject _wall;
     [PunRPC]
@@ -89,7 +250,7 @@ public class Abilities : MonoBehaviourPun, IPunObservable
         {
             Transform demo = controller.AttackRangeComponent.transform.GetChild(1).GetChild(11).transform;
             _wall = Instantiate(wall, demo.position + offset, demo.rotation);
-            Invoke("endability12", duration[1]);
+            Invoke("endability12", duration[11]);
         }
     }
     private void endability12()
@@ -115,7 +276,18 @@ public class Abilities : MonoBehaviourPun, IPunObservable
                 if (distance < distanceToObstacle)
                     distanceToObstacle = distance; 
             }
-            if(resizeable[ids[id -1] - 1])
+            if (Physics.Raycast(ray, out hit) && hit.transform.CompareTag("Enemy"))
+            {
+                float distance = Vector3.Distance(hit.point, unitCenterPos);
+                if (distance < distanceToObstacle)
+                    target = hit.transform.gameObject.GetComponent<PhotonView>();
+                    
+            }
+            else
+            {
+                target = null;
+            }
+                if (resizeable[ids[id -1] - 1])
             controller.AttackRangeComponent.transform.localScale = new Vector3(1, 1, distanceToObstacle);
             else
             controller.AttackRangeComponent.transform.localScale = new Vector3(1, 1, 3);

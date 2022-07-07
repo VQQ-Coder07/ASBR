@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Weapon Card_09
   m_EditorClassIdentifier: 
   cardName: Volleyball
-  cardSprite: {fileID: 21300000, guid: eee5108c91dd4f84f810c458782b232b, type: 3}
+  cardSprite: {fileID: 21300000, guid: 1e14df7ff63837f4d98de989b4a4b589, type: 3}
   effect: {fileID: 0}
   locked: 0
-  damage: 3
+  damage: 5
   Range: 15
   CoolDown: 4
   weaponID: 10

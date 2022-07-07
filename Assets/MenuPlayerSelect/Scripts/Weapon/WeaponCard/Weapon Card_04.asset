@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Weapon Card_04
   m_EditorClassIdentifier: 
   cardName: Golf
-  cardSprite: {fileID: 21300000, guid: b1c2e96d89ad32f4d940eed1a2c004a3, type: 3}
+  cardSprite: {fileID: 21300000, guid: a0cafad2009d69142af3b54ad1f0f391, type: 3}
   effect: {fileID: 0}
   locked: 0
   damage: 9
